@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# 项目：agent 会话持久化数据库
+backend/data/*.db
+
