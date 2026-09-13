@@ -1,5 +1,9 @@
 """搜索 agent：ReAct 模式（LLM + web 搜索工具循环）"""
 
+from re import search
+
+# from backend.src.backend.prompts import search_agent
+from backend.prompts import search_agent
 from langchain_openai import ChatOpenAI
 from langgraph.prebuilt import create_react_agent
 
@@ -26,3 +30,10 @@ def build_search_agent(checkpointer=None):
         prompt=SEARCH_AGENT_SYSTEM_PROMPT,
         checkpointer=checkpointer,
     )
+
+if __name__=="__main__":
+
+    from dotenv import load_dotenv
+    load_dotenv()
+    search_agent=build_search_agent()
+    print(search_agent.invoke("帮我查询2026中国法定节假日放假安排"))
